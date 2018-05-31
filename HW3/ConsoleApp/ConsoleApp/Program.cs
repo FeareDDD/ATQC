@@ -108,7 +108,6 @@ namespace ConsoleApp
         {
             cars();
         }
-        
         public static void GetToMenu()
         {
             bool check = false;
