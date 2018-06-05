@@ -1,0 +1,6 @@
+USE SQLHW
+
+DROP TABLE Booking;
+DROP TABLE Rooms;
+DROP TABLE Users;
+DROP TABLE Hotels;
