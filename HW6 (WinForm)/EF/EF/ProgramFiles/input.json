@@ -1,0 +1,21 @@
+[{
+    "Date": "\/Date(1448784000000)\/",
+    "FromEmail": "sony@gmil.com",
+    "InboxText": "sony",
+    "IsDeleted": false,
+    "IsInBox": true,
+    "IsNew": false,
+    "OutboxText": "sony",
+    "Subject": "sony",
+    "ToEmail": "rosonyma@gmail.com"
+},{
+    "Date": "\/Date(1448784000000)\/",
+    "FromEmail": "xperia@gmil.com",
+    "InboxText": "xperia",
+    "IsDeleted": false,
+    "IsInBox": true,
+    "IsNew": false,
+    "OutboxText": "xperia",
+    "Subject": "xperia",
+    "ToEmail": "xperia@gmail.com"
+}]
