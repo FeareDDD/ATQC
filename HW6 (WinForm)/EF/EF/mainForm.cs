@@ -88,7 +88,8 @@ namespace EF
                     }
                     ctx.SaveChanges();
                 }
-                MessageBox.Show("Data added successfully!", "Congratulations message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.messagesTableAdapter.Fill(this.testDBDataSet.Messages);
+                MessageBox.Show("Data added successfully", "Congratulations message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -113,6 +114,7 @@ namespace EF
                     }
                     ctx.SaveChanges();
                 }
+                this.messagesTableAdapter.Fill(this.testDBDataSet.Messages);
                 MessageBox.Show("Data deleted successfully!", "Congratulations message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
