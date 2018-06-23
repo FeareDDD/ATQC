@@ -33,8 +33,11 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dasdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.secretButtonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.messagesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.messagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.testDBDataSet = new EF.TestDBDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -46,18 +49,15 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.messagesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.btnGridRefresh = new System.Windows.Forms.ToolStripButton();
-            this.messagesDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnGridGenerate = new System.Windows.Forms.ToolStripButton();
-            this.btnGridLoad = new System.Windows.Forms.ToolStripButton();
-            this.btnGridClear = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnGridRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnGridGenerate = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnGridLoad = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.secretButtonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.messagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.testDBDataSet = new EF.TestDBDataSet();
+            this.btnGridClear = new System.Windows.Forms.ToolStripButton();
+            this.messagesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,18 +70,22 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.messagesTableAdapter = new EF.TestDBDataSetTableAdapters.MessagesTableAdapter();
             this.tableAdapterManager = new EF.TestDBDataSetTableAdapters.TableAdapterManager();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.messagesBindingNavigator)).BeginInit();
             this.messagesBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.messagesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.messagesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.testDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.messagesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.aboutToolStripMenuItem,
+            this.tmpToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(800, 24);
@@ -103,6 +107,13 @@
             this.dasdToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.dasdToolStripMenuItem.Text = "Open folder with input files";
             this.dasdToolStripMenuItem.Click += new System.EventHandler(this.dasdToolStripMenuItem_Click);
+            // 
+            // secretButtonToolStripMenuItem
+            // 
+            this.secretButtonToolStripMenuItem.Name = "secretButtonToolStripMenuItem";
+            this.secretButtonToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.secretButtonToolStripMenuItem.Text = "Open JSON file";
+            this.secretButtonToolStripMenuItem.Click += new System.EventHandler(this.secretButtonToolStripMenuItem_Click);
             // 
             // messagesBindingNavigator
             // 
@@ -150,6 +161,16 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // messagesBindingSource
+            // 
+            this.messagesBindingSource.DataMember = "Messages";
+            this.messagesBindingSource.DataSource = this.testDBDataSet;
+            // 
+            // testDBDataSet
+            // 
+            this.testDBDataSet.DataSetName = "TestDBDataSet";
+            this.testDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -236,6 +257,11 @@
             this.messagesBindingNavigatorSaveItem.Text = "Save Data";
             this.messagesBindingNavigatorSaveItem.Click += new System.EventHandler(this.messagesBindingNavigatorSaveItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // btnGridRefresh
             // 
             this.btnGridRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -245,6 +271,54 @@
             this.btnGridRefresh.Size = new System.Drawing.Size(50, 22);
             this.btnGridRefresh.Text = "Refresh";
             this.btnGridRefresh.Click += new System.EventHandler(this.btnGridRefresh_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnGridGenerate
+            // 
+            this.btnGridGenerate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnGridGenerate.Image = ((System.Drawing.Image)(resources.GetObject("btnGridGenerate.Image")));
+            this.btnGridGenerate.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGridGenerate.Name = "btnGridGenerate";
+            this.btnGridGenerate.Size = new System.Drawing.Size(58, 22);
+            this.btnGridGenerate.Text = "Generate";
+            this.btnGridGenerate.ToolTipText = "Generate DB from schema";
+            this.btnGridGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnGridLoad
+            // 
+            this.btnGridLoad.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnGridLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnGridLoad.Image")));
+            this.btnGridLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGridLoad.Name = "btnGridLoad";
+            this.btnGridLoad.Size = new System.Drawing.Size(37, 22);
+            this.btnGridLoad.Text = "Load";
+            this.btnGridLoad.ToolTipText = "Load data from JSON file";
+            this.btnGridLoad.Click += new System.EventHandler(this.btnLoadJSON_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // btnGridClear
+            // 
+            this.btnGridClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnGridClear.Image = ((System.Drawing.Image)(resources.GetObject("btnGridClear.Image")));
+            this.btnGridClear.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGridClear.Name = "btnGridClear";
+            this.btnGridClear.Size = new System.Drawing.Size(38, 22);
+            this.btnGridClear.Text = "Clear";
+            this.btnGridClear.ToolTipText = "Clear loaded data";
+            this.btnGridClear.Click += new System.EventHandler(this.btnClearData_Click);
             // 
             // messagesDataGridView
             // 
@@ -267,76 +341,6 @@
             this.messagesDataGridView.Name = "messagesDataGridView";
             this.messagesDataGridView.Size = new System.Drawing.Size(800, 398);
             this.messagesDataGridView.TabIndex = 0;
-            // 
-            // btnGridGenerate
-            // 
-            this.btnGridGenerate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnGridGenerate.Image = ((System.Drawing.Image)(resources.GetObject("btnGridGenerate.Image")));
-            this.btnGridGenerate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGridGenerate.Name = "btnGridGenerate";
-            this.btnGridGenerate.Size = new System.Drawing.Size(58, 22);
-            this.btnGridGenerate.Text = "Generate";
-            this.btnGridGenerate.ToolTipText = "Generate DB from schema";
-            this.btnGridGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
-            // 
-            // btnGridLoad
-            // 
-            this.btnGridLoad.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnGridLoad.Image = ((System.Drawing.Image)(resources.GetObject("btnGridLoad.Image")));
-            this.btnGridLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGridLoad.Name = "btnGridLoad";
-            this.btnGridLoad.Size = new System.Drawing.Size(37, 22);
-            this.btnGridLoad.Text = "Load";
-            this.btnGridLoad.ToolTipText = "Load data from JSON file";
-            this.btnGridLoad.Click += new System.EventHandler(this.btnLoadJSON_Click);
-            // 
-            // btnGridClear
-            // 
-            this.btnGridClear.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnGridClear.Image = ((System.Drawing.Image)(resources.GetObject("btnGridClear.Image")));
-            this.btnGridClear.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGridClear.Name = "btnGridClear";
-            this.btnGridClear.Size = new System.Drawing.Size(38, 22);
-            this.btnGridClear.Text = "Clear";
-            this.btnGridClear.ToolTipText = "Clear loaded data";
-            this.btnGridClear.Click += new System.EventHandler(this.btnClearData_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // secretButtonToolStripMenuItem
-            // 
-            this.secretButtonToolStripMenuItem.Name = "secretButtonToolStripMenuItem";
-            this.secretButtonToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.secretButtonToolStripMenuItem.Text = "Open JSON file";
-            this.secretButtonToolStripMenuItem.Click += new System.EventHandler(this.secretButtonToolStripMenuItem_Click);
-            // 
-            // messagesBindingSource
-            // 
-            this.messagesBindingSource.DataMember = "Messages";
-            this.messagesBindingSource.DataSource = this.testDBDataSet;
-            // 
-            // testDBDataSet
-            // 
-            this.testDBDataSet.DataSetName = "TestDBDataSet";
-            this.testDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -409,6 +413,20 @@
             this.tableAdapterManager.MessagesTableAdapter = this.messagesTableAdapter;
             this.tableAdapterManager.UpdateOrder = EF.TestDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // tmpToolStripMenuItem
+            // 
+            this.tmpToolStripMenuItem.Name = "tmpToolStripMenuItem";
+            this.tmpToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.tmpToolStripMenuItem.Text = "tmp";
+            this.tmpToolStripMenuItem.Click += new System.EventHandler(this.tmpToolStripMenuItem_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,9 +448,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.messagesBindingNavigator)).EndInit();
             this.messagesBindingNavigator.ResumeLayout(false);
             this.messagesBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.messagesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.messagesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.testDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.messagesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -480,6 +498,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton btnGridClear;
         private System.Windows.Forms.ToolStripMenuItem secretButtonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tmpToolStripMenuItem;
     }
 }
 

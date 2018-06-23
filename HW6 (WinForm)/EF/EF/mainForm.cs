@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
 using System.Data;
-using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
@@ -28,7 +23,7 @@ namespace EF
         
         }
 
-        private void btnGenerate_Click(object sender, EventArgs e)
+        private  void btnGenerate_Click(object sender, EventArgs e)
         {
             try
             {
@@ -76,19 +71,7 @@ namespace EF
         {
             try
             {
-                string read = System.IO.File.ReadAllText(ConfigurationManager.ConnectionStrings["MessagesJSON"].ConnectionString);
-                JavaScriptSerializer serializer = new JavaScriptSerializer();
-                List<Messages> msgJSON = new List<Messages>();
-                msgJSON = serializer.Deserialize<List<Messages>>(read.ToString());
-
-                using (var ctx = new DataModel())
-                {
-                    foreach (var obj in msgJSON)
-                    {
-                        ctx.Messages.Add(obj);
-                    }
-                    ctx.SaveChanges();
-                }
+                ReadJSON();
                 this.messagesTableAdapter.Fill(this.testDBDataSet.Messages);
                 MessageBox.Show("Data added successfully", "Congratulations message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -151,6 +134,44 @@ namespace EF
             Process.Start(Path.Combine(Environment.CurrentDirectory, @"ProgramFiles\", "input.json"));
         }
 
+        public void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (AboutBox box = new AboutBox())
+            {
+                box.ShowDialog(this);
+            } 
+        }
+
+        public bool ReadJSON()
+        {
+            try
+            {
+                string read = System.IO.File.ReadAllText(ConfigurationManager.ConnectionStrings["MessagesJSON"].ConnectionString);
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                List<Messages> msgJSON = new List<Messages>();
+                msgJSON = serializer.Deserialize<List<Messages>>(read.ToString());
+
+                using (var ctx = new DataModel())
+                {
+                    foreach (var obj in msgJSON)
+                    {
+                        ctx.Messages.Add(obj);
+                    }
+                    ctx.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+        }
+
+        private void tmpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReadJSON();
+        }
         //DONE: Add Entitity Framework and generate DB model from existing (Real DB)
         //DONE: Create SQL file that generates DataBase schema
         //DONE: Create Button on the form that Creates Database from schema from SQL in previous step
