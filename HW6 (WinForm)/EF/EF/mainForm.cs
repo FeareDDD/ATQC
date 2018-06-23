@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -138,6 +139,16 @@ namespace EF
         private void btnGridRefresh_Click(object sender, EventArgs e)
         {
             this.messagesTableAdapter.Fill(this.testDBDataSet.Messages);
+        }
+
+        private void dasdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Path.Combine(Environment.CurrentDirectory, @"ProgramFiles\"));
+        }
+
+        private void secretButtonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(Path.Combine(Environment.CurrentDirectory, @"ProgramFiles\", "input.json"));
         }
 
         //DONE: Add Entitity Framework and generate DB model from existing (Real DB)
