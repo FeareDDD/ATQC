@@ -77,7 +77,7 @@ namespace EF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
