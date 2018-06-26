@@ -58,7 +58,7 @@ namespace EF
                 }
                 else
                 {
-                    MessageBox.Show("Schema already created!", "Congratulations message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Schema already created!", "Grats", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 } 
             }
             catch (Exception ex)
@@ -178,5 +178,6 @@ namespace EF
         //DONE: Choose one of entities (Messages)
         //DONE: Add button clicking on which you import data from json file to database
         //DONE: Add button that cleanups data added by your code
+        //TODO:
     }
 }
